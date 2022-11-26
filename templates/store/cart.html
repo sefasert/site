@@ -8,6 +8,7 @@
 
 <section class="section-content padding-y bg">
 <div class="container">
+
 <!-- ============================ COMPONENT 1 ================================= -->
 {% if not cart_items %}
 <h3 class="text-center"> Alışveriş Sepetin Boş</h3>
@@ -15,17 +16,20 @@
 <div class="text-center">
 	<a href="{% url 'home' %}" class="btn btn-primary">Ürünlere Git</a>
 	</div>
+
 {% else %}
-<img src="{% static 'images/step1.png' %}" style="width: 300px; margin-bottom: 5px;">
+
+<img src="{% static 'images/step1.png' %}" style="width: 250px; margin-bottom: 5px; margin-left: 50px">
+
 <div class="row">
 	<aside class="col-lg-9">
 <div class="card">
-<table class="table table-borderless table-shopping-cart">
+<table class="table table-responsive-sm">
 <thead class="text-muted">
 <tr class="small text-uppercase">
   <th scope="col">Ürün</th>
 	  <th scope="col">Fiyat</th>
-  <th scope="col">Miktar</th>
+  <th scope="col">Adet</th>
 </tr>
 </thead>
 <tbody>
@@ -43,10 +47,10 @@
 	<td>
 		<!-- col.// -->
 					<div class="col">
-						<div class="price-wrap">
-							<var class="price">{{ cart_item.sub_total }} TL</var>
+						<div class="price-wrap" style="margin-left: -23px;">
+							<var class="price">{{ cart_item.sub_total }}₺</var><br>
 							<small class="text-muted">1 adeti</small><br>
-							<small class="text-muted">{{ cart_item.product.price }} TL</small>
+							<small class="text-muted">{{ cart_item.product.price }} ₺</small>
 						</div> <!-- price-wrap .// -->
 					</div> <!-- col.// -->
 	</td>
@@ -64,7 +68,7 @@
 				</form>
 			</div>
 		</div> <!-- input-group.// -->
-					<a href="{% url 'remove_cart_item' cart_item.product_id cart_item.id %}" class="btn btn-danger" style="margin-left:5px">Ürünü Sil</a>
+					<a href="{% url 'remove_cart_item' cart_item.product_id cart_item.id %}" class="btn btn-danger" style="margin-left:5px">Sil</a>
 	</td>
 
 </tr>
@@ -81,7 +85,7 @@
 		<div class="card-body">
 			<dl class="dlist-align">
 			  <dt>Toplam Fiyat:</dt>
-			  <dd class="text-right"><strong> {{ total }} TL </strong> </dd>
+			  <dd class="text-right"><strong>{{ total }} ₺</strong></dd>
 			</dl>
 
 			<hr>

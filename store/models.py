@@ -41,6 +41,12 @@ class Product(models.Model):
         ("Next", "next"),
         ("Skytech", "skytech"),
         ("ALTUS", "altus"),
+        ("SONY", "sony"),
+        ("YUMATU", "yumatu"),
+        ("Homstar", "homstar"),
+        ("Premier", "premier"),
+        ("AXEN", "axen"),
+        ("SUNNY-AXEN" , "sunny-axen"),
     }
 
     DURUM_CHOICE = {
@@ -53,11 +59,11 @@ class Product(models.Model):
     slug          = models.SlugField(max_length=200, unique=True)
     brand         = models.CharField(max_length=50, choices=BRAND_CHOICE, blank=True, null=True)
     durum         = models.CharField(max_length=50, choices=DURUM_CHOICE, blank=True, null=True)
-    description   = RichTextField(blank=True)
-    tags          = models.CharField(max_length=400, blank=True)
     price         = models.IntegerField()
     images        = models.ImageField(upload_to= "photos/products")
     stock         = models.IntegerField()
+    tags          = models.CharField(max_length=400, blank=True)
+    description   = RichTextField(blank=True)
     is_available  = models.BooleanField(default=False)
     created_date  = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)

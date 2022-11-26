@@ -628,8 +628,8 @@ p:last-child {
   flex-shrink: 0;
 }
 .itemside .info {
-  padding-left: 15px;
-  padding-right: 7px;
+  padding-left: 5px;
+  
 }
 .itemside p {
   margin-bottom: 0;
@@ -1398,7 +1398,7 @@ a[class*=card]:hover .title {
 /* ================ PAGES HEADER ================== */
 /* ====================== shopping-cart ==================== */
 .table-shopping-cart.table td, .table-shopping-cart.table th {
-  padding-left: 1.25rem;
+
   padding-right: 1.25rem;
 }
 .table-shopping-cart .price-wrap {

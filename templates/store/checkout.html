@@ -7,7 +7,7 @@
 
 <section class="section-content padding-y bg">
 <div class="container">
-	<img src="{% static 'images/step2.png' %}" style="width: 300px; margin-bottom: 5px;">
+<img src="{% static 'images/step2.png' %}" style="width: 250px; margin-bottom: 10px; margin-left: 50px">
 <!-- ============================ COMPONENT 1 ================================= -->
 <div class="row">
 	<aside class="col-lg-5">
@@ -64,11 +64,11 @@
 		<aside class="col-lg-7">
 			<div class="card">
 			<div class="card-body">
-	      <table class="table table-borderless table-shopping-cart">
+	      <table class="table table-sm">
 	      <thead class="text-muted">
 	      <tr class="small text-uppercase">
 	        <th scope="col">Ürünler</th>
-	        <th scope="col" width="120">Miktar</th>
+	        <th scope="col" width="120">Adet</th>
 	        <th scope="col" width="120">Fiyat</th>
 	      </tr>
 	      </thead>
@@ -84,12 +84,12 @@
 	      		</figure>
 	      	</td>
 	      	<td>
-	          <label for=""> {{ cart_item.quantity }} </label>
+	          <label for style="margin-left:20px;">{{ cart_item.quantity }}</label>
 	      	</td>
 	      	<td>
 	      		<div class="price-wrap">
-	      			<var class="price">{{ cart_item.sub_total }} TL</var>
-	      			<small class="text-muted">1 adeti {{ cart_item.product.price }} TL</small>
+	      			<var class="price">{{ cart_item.sub_total }} ₺</var><br>
+	      			<small class="text-muted">1 adeti {{ cart_item.product.price }} ₺</small>
 	      		</div> <!-- price-wrap .// -->
 	      	</td>
 	      </tr>
@@ -101,7 +101,7 @@
 				<div class="card-body">
 					<dl class="dlist-align">
 						<dt>Toplam fiyat:</dt>
-						<dd class="text-right"><strong>{{ total }} TL</strong></dd>
+						<dd class="text-right"><strong>{{ total }} ₺</strong></dd>
 					</dl>
 				</div> <!-- card-body.// -->
 				</div> <!-- card.// -->

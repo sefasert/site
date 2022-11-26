@@ -49,7 +49,7 @@
 			</button>
 		<div class="collapse" id="collapseExample">
 			<div class="card card-body" style="padding: 3px; margin: 3px; left: 3px;">
-			Bilgi: Ürünlerimiz sağlam çalışır bir şekilde sunulmaktadır, adet sayısı günceldir.</div>
+			Bilgi: Ürünlerimiz sağlam çalışır bir şekilde sunulmaktadır, stoklar günceldir.</div>
 		</div>
 </div>
 
@@ -59,20 +59,19 @@
 				{% csrf_token %}
 <article class="content-body">
 
-<h2 class="title">{{ single_product.product_name }}</h2>
+<h2 class="title" style="margin-top: -10px;">{{ single_product.product_name }}</h2>
 
 <div class="mb-3">
  <b>Marka:&nbsp;</b>{{ single_product.brand }}<br>
  <b>Durum:&nbsp;</b>{{ single_product.durum }}<br>
- <b>Stok Adeti:&nbsp;</b>{{ single_product.stock }}
+ <b>Stok Adeti:&nbsp;</b>Var ({{ single_product.stock }} Adet)
 </div>
-
 <b>Bu ürün hakkında:</b>
 {{ single_product.description | safe }}
 	{% if single_product.stock <= 0 %}
 	<h5 style="color: gray"><b>Sipariş için iletişime geçin</b></h5>
 	{% else %}
-	<var class="price h4">{{ single_product.price }} TL</var>
+	<var class="price h4">{{ single_product.price }} ₺</var>
 		<hr>
 		<button type="submit" class="btn  btn-primary"> <span class="text">&nbsp;Sepete Ekle</span> <i class="fas fa-shopping-cart"></i></button>
 	  <br><span style="margin-left: 10%">veya</span><br>
@@ -88,41 +87,8 @@
 
 <br>
 
-<div class="container">
-
-<header class="section-heading">
-<h3 class="section-title">İlişkili Ürünler</h3>
-</header>
-
-
-<div class="row">
-{% for product in related %}
-	<div class="col-md-4">
-		<figure class="card card-product-grid">
-			<div class="img-wrap">
-				<a href="{{ product.get_absolute_url }}"> <img src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
-			</div> <!-- img-wrap.// -->
-			<figcaption class="info-wrap">
-				<div class="fix-height">
-					<a href="{{ product.get_absolute_url }}" class="title">{{ product.product_name }}</a>
-				</div>
-							</figcaption>
-							<div class="col">
-				<span class="price" style="margin-right: 70px;">{{ product.price }} TL</span>
-
-				<a href="{{ product.get_absolute_url }}" class="btn btn-primary"
-				style="width: 120px; margin-bottom: 5px;">İncele</a>
-</div>
-		</figure>
-	</div>
-{% endfor %}
-</div>
-
-
-
-
-
 </div> <!-- container .//  -->
+
 </section>
 
 {% endblock %}

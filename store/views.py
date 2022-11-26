@@ -18,6 +18,7 @@ from django.http import JsonResponse
 
 
 from .filters import ProductFilter
+
 # Create your views here.
 
 
@@ -32,8 +33,8 @@ def store(request, category_slug=None):
         categories     = get_object_or_404(Category, slug=category_slug)
         products       = Product.objects.filter(category=categories, is_available=True).order_by("id")
         #filter
-        myFilter = ProductFilter(request.GET, queryset=products)
-        products = myFilter.qs
+        myFilter       = ProductFilter(request.GET, queryset=products)
+        products       = myFilter.qs
         paginator      = Paginator(products, 30)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
@@ -42,8 +43,8 @@ def store(request, category_slug=None):
     else:
         products       = Product.objects.all().filter(is_available=True).order_by("id")
         #filter
-        myFilter = ProductFilter(request.GET, queryset=products)
-        products = myFilter.qs
+        myFilter       = ProductFilter(request.GET, queryset=products)
+        products       = myFilter.qs
         paginator      = Paginator(products, 30)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
@@ -51,20 +52,18 @@ def store(request, category_slug=None):
 
     context = {
         "products"      : paged_products,
-        "myFilter"      : myFilter,
         "product_count" : product_count,
         "categories"    : categories,
         "setting"       : setting,
+        "myFilter"      : myFilter,
     }
     return render(request, "store/store.html", context)
 
 def product_detail(request, category_slug, product_slug):
     try:
         single_product = Product.objects.get(category__slug=category_slug, slug=product_slug)
-        related_products = Product.objects.filter(category=single_product.category).exclude(category__slug=product_slug)[:5]
         in_cart        = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
         categories     = get_object_or_404(Category, slug=category_slug)
-
     except Exception as e:
         raise e
     #product gallery işlemleri
@@ -75,8 +74,7 @@ def product_detail(request, category_slug, product_slug):
         "single_product" : single_product,
         "in_cart"        : in_cart,
         "categories"     : categories,
-        "product_gallery": product_gallery,
-        "related": related_products,
+        "product_gallery": product_gallery
     }
     return render(request, "store/product_detail.html", context)
 
@@ -111,8 +109,8 @@ def home(request, category_slug=None):
         categories     = get_object_or_404(Category, slug=category_slug)
         products       = Product.objects.filter(category=categories, is_available=True).order_by("id")
         #filter
-        myFilter = ProductFilter(request.GET, queryset=products)
-        products = myFilter.qs
+        myFilter       = ProductFilter(request.GET, queryset=products)
+        products       = myFilter.qs
         paginator      = Paginator(products, 33)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
@@ -121,8 +119,8 @@ def home(request, category_slug=None):
     else:
         products       = Product.objects.all().filter(is_available=True).order_by("id")
         #filter
-        myFilter = ProductFilter(request.GET, queryset=products)
-        products = myFilter.qs
+        myFilter       = ProductFilter(request.GET, queryset=products)
+        products       = myFilter.qs
         paginator      = Paginator(products, 33)
         page           = request.GET.get("page")
         paged_products = paginator.get_page(page)
@@ -130,20 +128,15 @@ def home(request, category_slug=None):
 
     context = {
         "products"      : paged_products,
-        "myFilter"      : myFilter,
         "product_count" : product_count,
         "categories"    : categories,
         "setting"       : setting,
-
+        "myFilter"      : myFilter,
     }
 
     if request.htmx:
         return render(request, 'list.html', context)
     return render(request, "index.html", context)
-
-
-
-
 
 def otoyazi(request):
     query_original = request.GET.get("term")

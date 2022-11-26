@@ -79,14 +79,16 @@
   .col .price {
     margin-left: 20px;
     margin-right: 100px;
-
   }
 
   .info-wrap .fix-height {
     height: 60px;
   }
 
-
+  .price-wrap .price {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 
 }
 

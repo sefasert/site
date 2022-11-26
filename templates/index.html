@@ -9,7 +9,7 @@
 
 {% block content %}
 
-<!-- gelişmiş arama -->
+<!-- gelişmiş arama yap -->
 					<div class="container">
 <div class="collapse" id="gelismisarama">
             <form method="get" action="">
@@ -27,6 +27,7 @@
             </form>
 </div>
 			</div>
+
 
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg" style="background-color: white;">
@@ -74,9 +75,6 @@
 
 <aside class="col-md-9">
 
-
-
-
 	<div class="card">
 		<a href="https://www.enginelektronik.xyz/category/iptv/dreamstar-b2-pro-android-ip-tv-cihaz/" target="_blank">
 		<img src="{% static 'images/cover.jpg'  %}" alt="First slide" height="100%" width="100%">
@@ -88,10 +86,10 @@
      {% include 'list.html' %}
 
 
-				 <div>
-					 <a class="btn" href="#bas" style="margin-left:300px; margin-top: -65px;
-					 background-color: red;" title="yukarı çık">⬆️</a>
-				 </div>
+<a href="#" class="bas" style="width:45px; height:45px; display:none; background-color: #a1d5e3; border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%); position:fixed; padding:8px; z-index:100; right:0; bottom:0; margin-bottom: 10px; margin-right:3px;">
+<img src="{% static 'images/up.svg' %}" alt="yukarı"></img>
+</a>
+
 
 
 </aside>
