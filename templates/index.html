@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block description %}Tv satışı-tamiri, kart satışı-tamiri, kumanda satışı-tamiri, tv ayak satışı, iptv cihaz satışı-kodu, 2.el tv satışı, kablo satışı, uydu alıcısı satışı{% endblock %}
+{% block keywords %}engin elektronik, televizyon, tv, kumanda, tv tamiri, televizyon kanalı, uydu ayarlama, kanal sıralama, kanal listeleme, iptv, iptv kod, cihaz, televizyon ayağı, tv ayağı, istanbul bağcılar, istanbul yüzyıl, elektronik ürünler, elektronik, tv kartı, televizyon kart tamiri, tv uydu{% endblock %}
+{% block title %}Engin Elektronik Tv.Hastanesi {% endblock %}
+
+
+{% block content %}
+
+<!-- gelişmiş arama -->
+					<div class="container">
+<div class="collapse" id="gelismisarama">
+            <form method="get" action="">
+	<div class="col-lg col-sm col-md col-6 flex-grow-0">
+							Marka:
+								{{ myFilter.form.brand }}
+							Kategori:
+	              {{ myFilter.form.category }}
+             yüksek fiyat:
+              {{ myFilter.form.price_gt }}
+             düşük fiyat:
+              {{ myFilter.form.price_lt }}
+							<button class="btn btn-light" type="submit">Ara</button>
+		</div>
+            </form>
+</div>
+			</div>
+
+<!-- ========================= SECTION PAGETOP ========================= -->
+<section class="section-pagetop bg" style="background-color: white;">
+
+<div class="container">
+	<div class="row">
+
+		<aside class="col-md-3" style="margin-left: -15px;">
+	<div class="card" >
+		<article class="filter-group">
+			<header class="card-header">
+				<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+					<i class="icon-control fa fa-chevron-down"></i>
+					<h6 class="title">Kategoriler</h6>
+				</a>
+			</header>
+			<div class="filter-content collapse show" id="collapse_1" style="">
+				<div class="card-body" style="padding: 0">
+					<ul class="list-menu">
+				{% for category in links %}
+						<div class="btn-group dropright">
+	 <li><button type="button" class="btn btn-white" aria-label="btn btn-white" style="margin: 7px">
+		 <a href="{{ category.get_url}}">{{ category.category_name }}</a>
+	 </button></li>
+		  <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown"
+			aria-expanded="false" aria-label="btn btn-white dropdown" style="margin: 7px;  left: -24px">
+			</button>
+						  <div class="dropdown-menu">
+									{% for rs in category.product_set.all %}
+								    	<li><a class="dropdown-item" href="{{ rs.get_absolute_url }}">{{ rs.product_name }}</a></li>
+									{% endfor %}
+						  </div>
+						</div>
+			 {% endfor %}
+					</ul>
+
+				</div> <!-- card-body.// -->
+			</div>
+		</article> <!-- filter-group  .// -->
+
+	</div> <!-- card.// -->
+
+		</aside> <!-- col.// -->
+
+
+<aside class="col-md-9">
+
+
+
+
+	<div class="card">
+		<a href="https://www.enginelektronik.xyz/category/iptv/dreamstar-b2-pro-android-ip-tv-cihaz/" target="_blank">
+		<img src="{% static 'images/cover.jpg'  %}" alt="First slide" height="100%" width="100%">
+		</a>
+	</div>
+
+
+
+     {% include 'list.html' %}
+
+
+				 <div>
+					 <a class="btn" href="#bas" style="margin-left:300px; margin-top: -65px;
+					 background-color: red;" title="yukarı çık">⬆️</a>
+				 </div>
+
+
+</aside>
+
+	</div> <!-- row // -->
+</div> <!-- container //  -->
+</section>
+<!-- ========================= SECTION INTRO END// ========================= -->
+
+
+{% endblock %}

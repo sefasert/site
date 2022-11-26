@@ -1,0 +1,47 @@
+{% load static %}
+
+<div class="row" style="margin-top: 3px;">
+	{% if products %}
+	{% for product in products %}
+	<div class="col-md-4">
+		<figure class="card card-product-grid">
+			<div class="img-wrap">
+				<a href="{{ product.get_absolute_url }}"> <img src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+			</div> <!-- img-wrap.// -->
+			<figcaption class="info-wrap">
+				<div class="fix-height">
+					<a href="{{ product.get_absolute_url }}" class="title">{{ product.product_name }}</a>
+					<div class="price-wrap mt-2">
+						{% if product.price <= 0 %}
+							<h5 style="color: gray"><b>Stokta kalmadı, sipariş için iletişime geçin</b></h5>
+							{% else %}
+
+					</div> <!-- price-wrap.// -->
+				</div>
+							</figcaption>
+							<div class="col">
+				<span class="price" style="margin-right: 70px;">{{ product.price }} TL</span>
+				{% endif %}
+				<a href="{{ product.get_absolute_url }}" class="btn btn-primary"
+				style="width: 120px; margin-bottom: 5px;">İncele</a>
+</div>
+		</figure>
+	</div> <!-- col.// -->
+	{% endfor %}
+	{% else %}
+</div> <!-- row end.// -->
+<h2>Arama bulunamadı.</h2>
+<h3> Anasayfaya geri dön </h3>
+<a href="{% url 'home' %}" class="btn btn-outline-primary">Anasayfa</a>
+ {% endif %}
+</div>
+
+
+{% if products.has_next %}
+    	<div id="load-more" style="text-align:center;">
+            <button class="btn btn-outline" style="margin-bottom: 50px; margin-top: 30px;  border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);"
+                    hx-get="{% url 'home' %}?page={{products.next_page_number}}"
+                    hx-target="#load-more"
+                    hx-swap="outerHTML">daha fazla yükle <img class="htmx-indicator" src=" {% static 'images/load-more.svg' %}"></button>
+        </div>
+{% endif %}

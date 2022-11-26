@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="section-content padding-y bg">
+<div class="container">
+	<img src="{% static 'images/step3.png' %}" style="width: 300px; margin-bottom: 5px;">
+<!-- ============================ COMPONENT 1 ================================= -->
+<div class="row">
+	<aside class="col-lg-9">
+    <div class="card">
+      <h4>Sayın {{ user.first_name }} {{  user.last_name }}</h4>
+      <hr>
+        <h3>Siparişiniz Gönderildi</h3>
+        <h3>Sipariş Kodunuz: {{ order.order_number }}</h3>
+    </div>
+</aside> <!-- col.// -->
+</div> <!-- row.// -->
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+</div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock %}
