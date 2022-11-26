@@ -13,9 +13,16 @@ Arama - Engin Elektronik
 
 {% block content %}
 
-<!-- gelişmiş arama -->
+<!-- gelişmiş arama yap -->
 					<div class="container">
-<div class="collapse" id="gelismisarama">
+<div id="accordion">
+	<div id="headingOne">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			 Gelişmiş Arama:
+		 </a>
+		 </div>
+		 </div>
+		  <div id="collapseOne" class="collapse show" role="headingOne" aria-labelledby="headingOne">
             <form method="get" action="">
 	<div class="col-lg col-sm col-md col-6 flex-grow-0">
 							Marka:
@@ -39,7 +46,7 @@ Arama - Engin Elektronik
 <!-- ========================= SECTION INTRO END// ========================= -->
 
 <!-- ========================= SECTION CONTENT ========================= -->
-<section class="section-content padding-y">
+<section class="section-content padding-y" style="padding-top:10px">
 <div class="container">
 <div class="row">
 	<aside class="col-md-3">
