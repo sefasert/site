@@ -9,31 +9,6 @@
 
 {% block content %}
 
-<!-- gelişmiş arama yap -->
-					<div class="container">
-<div id="accordion">
-	<div id="headingOne">
-	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			 Gelişmiş Arama:
-		 </a>
-		 </div>
-		 </div>
-		  <div id="collapseOne" class="collapse show" role="headingOne" aria-labelledby="headingOne">
-            <form method="get" action="">
-	<div class="col-lg col-sm col-md col-6 flex-grow-0">
-							Marka:
-								{{ myFilter.form.brand }}
-							Kategori:
-	              {{ myFilter.form.category }}
-             yüksek fiyat:
-              {{ myFilter.form.price_gt }}
-             düşük fiyat:
-              {{ myFilter.form.price_lt }}
-							<button class="btn btn-light" type="submit">Ara</button>
-		</div>
-            </form>
-</div>
-			</div>
 
 
 <!-- ========================= SECTION PAGETOP ========================= -->
