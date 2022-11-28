@@ -14,8 +14,6 @@ class Product(models.Model):
 
     BRAND_CHOICE = {
         ("-", ""),
-        ("ARÇELİK", "arcelik"),
-        ("BEKO", "beko"),
         ("Botech", "botech"),
         ("CVS", "cvs"),
         ("VESTEL", "vestel"),
@@ -33,7 +31,6 @@ class Product(models.Model):
         ("Profilo", "profilo"),
         ("NEXT", "next"),
         ("AUO", "auo"),
-        ("GRUNDIG", "grundig"),
         ("Arçelik-Beko-Grundig", "arcelik-beko-grundig"),
         ("GEEPAS", "geepas"),
         ("ROWELL", "rowell"),
