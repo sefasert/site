@@ -86,6 +86,9 @@ def search(request):
         keyword = request.GET["keyword"]
         if keyword:
             products       = Product.objects.filter(is_available=True).order_by("-created_date").filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
+            #filter
+            myFilter       = ProductFilter(request.GET, queryset=products)
+            products       = myFilter.qs
             product_count  = products.count()
         else:
             return redirect("store")
@@ -94,6 +97,7 @@ def search(request):
     context = {
         "products"      : products,
         "product_count" : product_count,
+        "myFilter"      : myFilter,
     }
     return render(request, "store/store.html", context)
 
@@ -145,3 +149,27 @@ def otoyazi(request):
     mylist += [x.product_name for x in queryset]
 
     return JsonResponse(mylist, safe=False)
+
+
+def filter_results(request):
+    products       = Product.objects.filter(is_available=True).order_by("id")
+    #filter
+    myFilter       = ProductFilter(request.GET, queryset=products)
+    products       = myFilter.qs
+    paginator      = Paginator(products, 30)
+    page           = request.GET.get("page")
+    try:
+        paged_products = paginator.page(page)
+    except PageNotAnInteger:
+        paged_products = paginator.page(1)
+    except EmptyPage:
+        paged_products = paginator.page(paginator.num_pages)
+
+    page_obj=paginator.get_page(page)
+
+    context = {
+        'products':products,
+        'myFilter':myFilter,
+        'page_obj':page_obj
+    }
+    return render(request, 'store/store.html', context)
