@@ -30,7 +30,6 @@ class Product(models.Model):
         ("LG", "lg"),
         ("Profilo", "profilo"),
         ("NEXT", "next"),
-        ("AUO", "auo"),
         ("Arçelik-Beko-Grundig-Altus", "arcelik-beko-grundig-altus"),
         ("GEEPAS", "geepas"),
         ("ROWELL", "rowell"),
