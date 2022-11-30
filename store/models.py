@@ -69,12 +69,13 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
 
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
         img = Image.open(self.images.path)
-        if img.height > 700 or img.width > 700:
-            output_size = (700, 700)
+        if img.height > 1200 or img.width > 1200:
+            output_size = (1200, 1200)
             img.thumbnail(output_size)
             img.save(self.images.path)
 
