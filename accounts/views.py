@@ -23,7 +23,7 @@ from orders.models import Order, OrderProduct
 
 def register(request):
     if request.user.is_authenticated:
-        return redirect("store")
+        return redirect("home")
     elif request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():
@@ -80,7 +80,7 @@ def activate(request, uidb64, token):
 
 def login(request):
     if request.user.is_authenticated:
-        return redirect("store")
+        return redirect("home")
     elif request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
@@ -88,7 +88,7 @@ def login(request):
         user = auth.authenticate(email=email, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect("store")
+            return redirect("home")
         else:
             messages.error(request, "e-posta yada şifre yanlış")
             return redirect("login")
@@ -97,7 +97,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect("store")
+    return redirect("home")
 
 
 @login_required(login_url="login")
