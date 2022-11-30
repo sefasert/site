@@ -74,8 +74,8 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
         img = Image.open(self.images.path)
-        if img.height > 1200 or img.width > 1200:
-            output_size = (1200, 1200)
+        if img.height > 2000 or img.width > 2000:
+            output_size = (2000, 2000)
             img.thumbnail(output_size)
             img.save(self.images.path)
 
