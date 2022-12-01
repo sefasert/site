@@ -111,7 +111,7 @@ def home(request, category_slug=None):
 
     if category_slug !=None:
         categories     = get_object_or_404(Category, slug=category_slug)
-        products       = Product.objects.filter(category=categories, is_available=True).order_by("id")
+        products       = Product.objects.filter(category=categories, is_available=True).order_by("-id")
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
@@ -121,7 +121,7 @@ def home(request, category_slug=None):
         product_count  = products.count()
 
     else:
-        products       = Product.objects.all().filter(is_available=True).order_by("id")
+        products       = Product.objects.all().filter(is_available=True).order_by("-id")
         #filter
         myFilter       = ProductFilter(request.GET, queryset=products)
         products       = myFilter.qs
