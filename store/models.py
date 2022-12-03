@@ -60,7 +60,7 @@ class Product(models.Model):
     tags          = models.CharField(max_length=400, blank=True)
     description   = RichTextField(blank=True)
     is_available  = models.BooleanField(default=False)
-    created_date  = models.DateTimeField(auto_now_add=True)
+    created_date  = models.DateField()
     modified_date = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):
