@@ -89,8 +89,11 @@
 			</dl>
 
 			<hr>
-
+			{% if user.id is None %}
+			<button type="button" class="btn btn-primary btn-block" disabled> Sipariş Vermek İçin Kaydol</button>
+			{% else %}
 			<a href="{% url 'checkout' %}" class="btn btn-primary btn-block"> Sipariş Ver</a>
+			{% endif %}
 			<a href="{% url 'store' %}" class="btn btn-light btn-block">Alışverişe Geri Dön</a>
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
