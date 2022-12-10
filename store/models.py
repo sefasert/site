@@ -43,6 +43,8 @@ class Product(models.Model):
         ("AXEN", "axen"),
         ("SUNNY-AXEN" , "sunny-axen"),
         ("Navitech", "navitech"),
+        ("TOSHIBA", "toshiba"),
+        ("Panasonic", "panasonic"),
     }
 
     DURUM_CHOICE = {
