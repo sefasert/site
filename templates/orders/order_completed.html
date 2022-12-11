@@ -4,15 +4,17 @@
 
 <section class="section-content padding-y bg">
 <div class="container">
-<img src="{% static 'images/step3.png' %}" style="width: 250px; margin-bottom: 10px; margin-left: 50px">
+
 <!-- ============================ COMPONENT 1 ================================= -->
 <div class="row">
 	<aside class="col-lg-9">
     <div class="card">
-      <h4>Sayın {{ user.first_name }} {{  user.last_name }}</h4>
+      <h4 class="text-xl">Sayın, {{ user.first_name }} {{  user.last_name }}</h4>
       <hr>
-        <h3>Siparişiniz Gönderildi</h3>
-        <h3>Sipariş Kodunuz: {{ order.order_number }}</h3>
+        <h3 class="text-xl">Siparişiniz Bize Gönderildi!</h3>
+				<h3 class="text-xl">Emailinize Gelen Bilgi Mesajınızı Kontrol Ediniz..</h3> 
+        <h3 class="text-xl">Sipariş Kodunuz: {{ order.order_number }}</h3>
+
     </div>
 </aside> <!-- col.// -->
 </div> <!-- row.// -->

@@ -1,12 +1,12 @@
 {% load static %}
 
-<div class="row" style="margin-top: 3px;">
+<div class="row md:flex" style="margin-top: 3px; margin-left:-12px;">
 	{% if products %}
 	{% for product in products %}
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
 			<div class="img-wrap">
-				<a href="{{ product.get_absolute_url }}"> <img src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+				<a href="{{ product.get_absolute_url }}"> <img class="rounded" src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
@@ -35,10 +35,10 @@
 
 
 {% if products.has_next %}
-    	<div id="load-more" style="text-align:center;">
-            <button class="btn btn-outline" style="margin-bottom: 50px; margin-top: 30px;  border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);"
+    	<div id="load-more" style="text-align:center">
+            <button class="btn hover:bg-slate-50" style="margin-bottom: 50px; margin-top: 30px;  border-radius: 50px; box-shadow: 0 2px 8px 0 rgb(0 0 0 / 15%);"
                     hx-get="{% url 'home' %}?page={{products.next_page_number}}"
                     hx-target="#load-more"
-                    hx-swap="outerHTML">daha fazla yükle <img class="htmx-indicator" src=" {% static 'images/load-more.svg' %}" alt="load-more"></button>
+                    hx-swap="outerHTML">daha fazla yükle<img class="htmx-indicator inline" src="{% static 'images/load-more.svg' %}" alt="load-more"></button>
         </div>
 {% endif %}

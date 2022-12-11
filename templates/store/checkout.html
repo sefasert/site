@@ -7,13 +7,13 @@
 
 <section class="section-content padding-y bg">
 <div class="container">
-<img src="{% static 'images/step2.png' %}" style="width: 250px; margin-bottom: 10px; margin-left: 50px">
+
 <!-- ============================ COMPONENT 1 ================================= -->
 <div class="row">
 	<aside class="col-lg-5">
 <div class="card">
 <div class="card-body">
-  <h4 class="card-title mb-3">Fatura Adresi</h4>
+  <h4 class="card-title mb-3 text-xl font-semibold">Fatura Adresi:</h4>
 <form action="" method="POST">
     {% csrf_token %}
 		<div class="form-row">
@@ -64,12 +64,12 @@
 		<aside class="col-lg-7">
 			<div class="card">
 			<div class="card-body">
-	      <table class="table table-sm">
+	      <table class="table w-full">
 	      <thead class="text-muted">
 	      <tr class="small text-uppercase">
-	        <th scope="col">Ürünler</th>
-	        <th scope="col" width="120">Adet</th>
-	        <th scope="col" width="120">Fiyat</th>
+	        <th class="">Ürünler</th>
+	        <th class="-ml-7">Adet</th>
+	        <th class="">Fiyat</th>
 	      </tr>
 	      </thead>
 	      <tbody>
@@ -77,19 +77,20 @@
 	      <tr>
 	      	<td>
 	      		<figure class="itemside align-items-center">
-	      			<div class="aside"><img src="{{ cart_item.product.images.url }}" class="img-sm"></div>
+	      			<div class="aside"><img src="{{ cart_item.product.images.url }}" class="img-sm rounded -ml-6"></div>
 	      			<figcaption class="info">
-	      				<a href="{{ cart_item.product.get_absolute_url }}" class="title text-dark">{{ cart_item.product.product_name }}</a>
+	      				<a href="{{ cart_item.product.get_absolute_url }}" class="title text-dark -ml-6">{{ cart_item.product.product_name }}</a>
 	      			</figcaption>
 	      		</figure>
 	      	</td>
 	      	<td>
-	          <label for style="margin-left:20px;">{{ cart_item.quantity }}</label>
+	          <span class="ml-4">{{ cart_item.quantity }}</span>
 	      	</td>
 	      	<td>
 	      		<div class="price-wrap">
 	      			<var class="price">{{ cart_item.sub_total }} ₺</var><br>
-	      			<small class="text-muted">1 adeti {{ cart_item.product.price }} ₺</small>
+	      			<small class="text-muted">1 adeti</small><br>
+							<small>{{ cart_item.product.price }} ₺</small>
 	      		</div> <!-- price-wrap .// -->
 	      	</td>
 	      </tr>
@@ -101,11 +102,11 @@
 				<div class="card-body">
 					<dl class="dlist-align">
 						<dt>Toplam fiyat:</dt>
-						<dd class="text-right"><strong>{{ total }} ₺</strong></dd>
+						<dd class="text-right ml-10"><strong>{{ total }} ₺</strong></dd>
 					</dl>
 				</div> <!-- card-body.// -->
 				</div> <!-- card.// -->
-				<button type="submit" class="btn btn-primary btn-block">Siparişi Gönder</button>
+				<button type="submit" class="btn btn-primary btn-block bg-blue-600 hover:bg-blue-700">Siparişi Gönder</button>
 </form>
 			<a href="{% url 'cart' %}" class="btn btn-light btn-block">Sepete Geri Dön</a>
 		</div> <!-- card-body.// -->

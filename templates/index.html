@@ -11,22 +11,21 @@
 
 
 <!-- ========================= SECTION PAGETOP ========================= -->
-<section class="section-pagetop bg" style="background-color: white;">
+<section class="section-pagetop bg mt-3" style="background-color: white;">
 
 <div class="container">
 	<div class="row">
 
-		<aside class="col-md-3" style="margin-left: -15px;">
-	<div class="card" >
+		<aside class="col-md-3 md:flex" style="margin-left: -15px;">
+	<div class="flex card w-72">
 		<article class="filter-group">
 			<header class="card-header">
-				<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
-					<i class="icon-control fa fa-chevron-down"></i>
-					<h6 class="title">Kategoriler</h6>
-				</a>
+				<i class="icon-control fa fa-list"></i>
+					<h6 class="text-md font-bold text-blue-600">Kategoriler</h6>
 			</header>
-			<div class="filter-content collapse show" id="collapse_1" style="">
-				<div class="card-body" style="padding: 0">
+
+			<div class="filter-content show" id="collapse_1">
+				<div class="card-body pl-0" style="margin-top: -15px; margin-left: -3px">
 					<ul class="list-menu">
 				{% for category in links %}
 						<div class="btn-group dropright">
@@ -47,6 +46,7 @@
 
 				</div> <!-- card-body.// -->
 			</div>
+
 		</article> <!-- filter-group  .// -->
 
 	</div> <!-- card.// -->
@@ -56,11 +56,7 @@
 
 <aside class="col-md-9">
 
-	<div class="card">
-		<a href="https://www.enginelektronik.xyz/category/iptv/dreamstar-b2-pro-android-ip-tv-cihaz/" target="_blank">
-		<img src="{% static 'images/cover.jpg'  %}" alt="First slide" height="100%" width="100%">
-		</a>
-	</div>
+
 
 
 
