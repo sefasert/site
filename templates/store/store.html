@@ -22,7 +22,7 @@ Arama - Engin Elektronik
 							 {{ myFilter.form.brand }}
 							Kategori:
 	              {{ myFilter.form.category }}
-								       
+
 							<button class="btn btn-light" type="submit">Ara</button>
 		</div>
             </form>
@@ -94,7 +94,7 @@ Arama - Engin Elektronik
 	<div class="col-md-4">
 		<figure class="card card-product-grid">
 			<div class="img-wrap">
-				<a href="{{ product.get_absolute_url }}"> <img src="{{ product.images.url }}" alt="{{ product.product_name }}" width="1000" height="1000"></a>
+				<a href="{{ product.get_absolute_url }}"> <img src="{{ product.images.url }}" class="rounded hover:scale-105 transition duration-1000 ease-in-out" alt="{{ product.product_name }}" width="1000" height="1000"></a>
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
